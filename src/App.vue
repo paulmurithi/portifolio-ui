@@ -1,28 +1,51 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div id="app" class="container_fluid" v-scroll-spy v-bind="scroll">
+    <Modal />
+    <Navigation />
+    <About />
+    <Skills/>
+    <Projects/>
+    <Testimonials/>
+    <Footer/>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import Modal from "./components/Modal.vue";
+import Footer from "./components/Footer.vue";
+import About from "./components/About.vue";
+import Projects from './components/Projects.vue';
+import Skills from './components/Skills.vue';
+import Navigation from './components/Navigation.vue';
+import Testimonials from './components/Testimonials.vue';
 
 export default {
-  name: "App",
+  name: 'app',
   components: {
-    HelloWorld
+    Footer,
+    Modal,
+    About,
+    Projects,
+    Skills,
+    Navigation,
+    Testimonials
+  },
+  data:function() {
+    return{
+      sroll:{
+        allowNoActive:true,
+      }
+    }
   }
-};
+}
 </script>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang='scss'>
+  html,body{
+      padding: 0;
+      margin: 0;
+    }
+  
+  
 </style>
+

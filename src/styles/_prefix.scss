@@ -1,0 +1,15 @@
+///this mixin receives a property, a value of that property and a list of browser prefixes
+/// it then generates the statements compatible with all other browsers i.e -moz-, -webkit- and -o-
+@mixin prefix($property, $value, $prefixes) {
+    // loop through all browser prefixes passed to the mixin 
+    // using interpolation, generate statements compatible with each browser
+    $known_prefixes: moz webkit o ms;
+
+    @each $prefix in $prefixes{
+        @if not index($known-prefixes, $prefix) {
+            @warn "Unknown prefix #{$prefix}.";
+          }
+        -#{$prefix}-#{$property}:$value;
+    }
+    #{$property}: $value;
+}
